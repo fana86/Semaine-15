@@ -21,6 +21,15 @@ Pour cet exercice l'API à utiliser sera celle de The Movie Database:
 
 https://developers.themoviedb.org/3/getting-started/introduction
 
+## Groupe
+ 
+Groupe 1 | Groupe 2 | Groupe 3
+--- | --- | ---
+Virginie | Yana | Natascha
+Marie-Solange  | Mohamed Ben | Brahima
+Régine | Joellie | Ziadoon
+--- | Rachel | ---
+
 ## Les fonctionnalités
 
 - Avant tout propos: votre application sera construite sur le principe d'une SINGLE PAGE APP: components et DOM virtuel sont au programme 
