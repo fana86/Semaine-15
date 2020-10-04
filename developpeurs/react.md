@@ -3,10 +3,19 @@
 
 - [Préambule](#préambule)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
+- [Pourquoi utiliser React.js](#pourquoi-utiliser-reactjs)
 - [Petit lexique](#petit-lexique)
   - [JSX](#jsx)
   - [ReactDOM et Render()](#reactdom-et-render)
+  - [Import React](#import-react)
+  - [React Components](#react-components)
+    - [JSX Capitalization](#jsx-capitalization)
+  - [Components Interacting](#components-interacting)
+    - [Props](#props)
+    - [Constructor](#constructor)
+    - [State](#state)
+  - [Lifecycle Methods](#lifecycle-methods)
+  - [Hooks](#hooks)
 
 ## Préambule
 
@@ -15,6 +24,8 @@ React est une bibliothèque JavaScript pour construire des interfaces utilisateu
 Avant de commencer il est de bon ton de relire un peu [la théorie JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript/Une_r%C3%A9introduction_%C3%A0_JavaScript). Il n'est pas nécessaire d'être un pro du JS pour utiliser React, mais quelques bases sont tout de même recommandées.
 
 Pour ce cours je vous suggère de suivre le [tutoriel officiel](https://fr.reactjs.org/tutorial/tutorial.html) de React qui est super bien fait et en français!
+
+[:arrow_up: Revenir au top](#reactjs)
 
 ## Installation
 
@@ -29,7 +40,9 @@ npm start
 
 3. Cliquez sur l'adresse local pour voir votre application.
 
-## Utilisation
+[:arrow_up: Revenir au top](#reactjs)
+
+## Pourquoi utiliser React.js
 
 React est *rapide*. Une app réalisé avec React est capable de faire des mises à jour complexe et toujours être rapide et responsive.
 
@@ -40,6 +53,8 @@ React *évolutif*. Il s'adapte à tous type de projet et excelle sur les plus co
 React est *flexible*. Il peut tout à fait servir à des projets qui n'ont rien à voir avec des app web.
 
 react est *populaire*. Ce qui fait qu'il est plus facile de trouver de l'aide en ligne et également un job par après.
+
+[:arrow_up: Revenir au top](#reactjs)
 
 ## Petit lexique
 
@@ -107,6 +122,16 @@ const paragraphs = (
 );
 ```
 
+Le JSX est une matière fort complète, il y a encore des choses à connaître mais vous le découvrirez au fur et à mesure de votre apprentissage de React.
+
+Voici néanmoins des liens utiles pour vous aider:
+
+- [Codeacademy :us:](https://www.codecademy.com/learn/react-101)
+- [React :fr:](https://fr.reactjs.org/docs/introducing-jsx.html)
+- [W3School :us:](https://www.w3schools.com/react/react_jsx.asp)
+
+[:arrow_up: Revenir au top](#reactjs)
+
 ### ReactDOM et Render()
 
 ```js
@@ -118,16 +143,85 @@ ReactDOM.render(
 )
 ```
 
-`ReactDOM` est une librairie JS qui contient des méthodes liés à React. La plus utile pour le moment est `render`. On va passer en argument notre JSX pour que `render` l'affiche sur notre page.
+`ReactDOM` est une librairie JS qui contient des méthodes liés à React. La plus utile pour le moment est `render()`. On va passer en argument notre JSX pour que `render()` l'affiche sur notre page.
 
+`document.getElementById`devrait vous parraître familier. C'est avec lui qu'on indique à l'intérieur de quel élément HTML on veut afficher notre app React. Il suffit de donner à notre `div`une id `app`dans ce cas-ci.
 
----
-classe de composant React/type de composant React
-props
-createElement()
-state this.state setState
-on[event] (onClick)
-handle[event] (handleclick)
-immutabilité
-fonctions composants
-key
+```html
+<div id="app">C'est ici que s'affichera notre rendu React</div>
+```
+
+Il est possible de passer une variable à `render()`
+
+```js
+const myList = {
+  js: <li>Julie</li>,
+  css: <li>James</li>,
+  photo: <li>Chris</li>,
+  coms: <li>David</li>,
+  boss: <li>Vincent</li>,
+};
+
+ReactDOM.render(
+myList,
+document.getElementById('app')
+);
+```
+
+[:arrow_up: Revenir au top](#reactjs)
+
+### Import React
+
+Pour pouvoir utiliser React il faut d'abord l'importer dans notre page. Quand on l'importe cela crée un objet qui contient toutes les propriétés dont React à besoin pour fonctionner, y compris pour le JSX et les customs components.
+
+```js
+import React from 'react';
+```
+
+[:arrow_up: Revenir au top](#reactjs)
+
+### React Components
+
+Les applications React sont faites de plusieurs composants. Mais qu'est-ce qu'un composant?
+
+Il s'agit d'un petit bout de code réutilisable et qui sera en charge d'une seule tâche. Il s'agit souvent de rendre de l'HTML. Vous pouvez créer une infinité de composants pour découper votre app.
+
+Une classe React à besoin d'hériter depuis la classe de base `React.Component` et d'avoir une méthode `render()`. 
+
+```js
+class MyComponent extends React.Component {
+  render() {
+    return <h1>Hello world!</h1>;
+  }
+}
+```
+
+[:arrow_up: Revenir au top](#reactjs)
+
+#### JSX Capitalization
+
+Il est obligatoire que la première lettre de votre composant soit en majuscule. Cela permet à React de faire la distinction entre une balise HTML et un composant.
+
+```js
+<MyComponent/>
+```
+
+[:arrow_up: Revenir au top](#reactjs)
+
+----
+
+:exclamation: La suite du cours est encore en travaux.
+
+![wip](https://www.avee.no/wp-content/uploads/2018/07/work-in-progress-1.jpg)
+
+### Components Interacting
+
+#### Props
+
+#### Constructor
+
+#### State
+
+### Lifecycle Methods
+
+### Hooks
